@@ -1,0 +1,68 @@
+.border, .box, .right,
+.left, .right li, .center {
+  border: 1px solid #999; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+  ul li {
+    list-style: none; }
+
+h1, h2, h3 {
+  margin: 0; }
+
+body {
+  height: 100%;
+  padding: 20px;
+  margin: 0px; }
+
+.box {
+  padding: 20px;
+  background-color: #eee; }
+
+.right,
+.left {
+  background-color: #fff;
+  height: 100%;
+  padding: 20px;
+  text-align: center; }
+
+.left {
+  float: left;
+  width: 158px;
+  text-align: left; }
+  .left img {
+    width: 80px;
+    float: left; }
+  .left h3 {
+    line-height: 1em;
+    margin: 18px 0; }
+
+.right {
+  float: right;
+  width: 78px; }
+  .right li {
+    margin-bottom: 20px;
+    overflow: hidden; }
+    .right li:last-child {
+      margin-bottom: 0; }
+    .right li img {
+      width: 80px;
+      height: 80px;
+      margin-left: -5px; }
+
+.center {
+  padding: 20px;
+  background-color: #fff;
+  margin: 0px 140px 0px 220px;
+  min-height: 400px; }
+  .center dl {
+    margin-bottom: 1.5em; }
+    .center dl:last-child {
+      margin-bottom: 0; }
+    .center dl dt {
+      margin-bottom: 1em; }
+    .center dl dd {
+      margin-bottom: .7em; }
+      .center dl dd:last-child {
+        margin-bottom: 0; }

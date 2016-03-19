@@ -1,0 +1,102 @@
+/*
+ * 公用函数
+ */
+@mixin backgroundImg ($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+}
+
+/*
+ * 公用类
+ */
+.joinus-icon {
+  @include backgroundImg('../img/jionus/join-sp.png');
+}
+
+
+.clear-both {
+  clear: both;
+}
+body {
+  font-family: 'Microsoft Yahei';
+}
+h2 {
+  margin: 0;
+}
+.main {
+  margin: 0 0 0 205px;
+  padding: 100px 0 100px 25px;
+  background-color: #f2f2f2;
+
+  li {
+    list-style: none;
+  }
+}
+
+.members-list {
+
+  .list {
+    -webkit-transition: all 1s ease-out;
+    padding: 22px 1.57%;
+    background-color: #fff;
+    width: 43.85%;
+    float: left;
+    margin: 0 3% 30px 0;
+    max-width: 734px;
+    min-width: 500px;
+
+  }
+}
+.members-title {
+  @extend .joinus-icon;
+  float: left;
+  padding-left: 55px;
+  height: 70px;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 1.2;
+  background-position: 0px -99px;
+
+  em {
+    display: block;
+    font-style: normal;
+  }
+}
+
+.members-rank {
+  float: right;
+  width: 54px;
+  height: 64px;
+  background: url(http://ossweb-img.qq.com/images/tgideas/web201312/join-sp.jpg) no-repeat 0 0;
+  color: #fff;
+  line-height: 64px;
+  font-size: 42px;
+  padding-left: 10px;
+  font-style: normal;
+}
+
+.members-main {
+  clear: both;
+  padding-top: 1em;
+  h4 {
+    margin: 1em 0 1em 0;
+  }
+  p {
+    color: #757575;
+  }
+  ol {
+    padding: 0;
+
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    margin-bottom: .5em;
+    color: #757575;
+  }
+  .emil {
+    color: #24a9ff;
+  }
+}
