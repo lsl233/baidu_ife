@@ -1,0 +1,26 @@
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -100px; }
+
+.square {
+  height: 200px;
+  width: 400px;
+  background-color: #ccc;
+  position: relative; }
+  .square .angle-left-top,
+  .square .angle-right-bottom {
+    position: absolute;
+    background-color: #fc0;
+    height: 50px;
+    width: 50px; }
+  .square .angle-left-top {
+    border-bottom-right-radius: 100%;
+    left: 0;
+    top: 0; }
+  .square .angle-right-bottom {
+    border-top-left-radius: 100%;
+    right: 0;
+    bottom: 0; }
