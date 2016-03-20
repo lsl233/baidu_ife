@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 20px;
+}
+
+.box {
+  padding: 20px;
+  height: 400px;
+  border: 1px solid #757575;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 640px) {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  div {
+    width: 150px;
+  }
+}
+
+.one, .two, .three {
+  border: 1px solid #f00;
+  order: 1;
+}
+
+.one {
+  height: 120px;
+}
+
+.two {
+  height: 100px;
+}
+
+.three {
+  height: 40px;
+}
+
+.four {
+  border: 1px solid #0f0;
+  height: 200px;
+  @media (max-width: 640px) {
+    order: 0;
+  }
+}
