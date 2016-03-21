@@ -102,9 +102,22 @@
         render(aqiData);
     }
 
+    function addEvent(elm,type,handler){
+        if(!elm) return false;
+        if(elm.addEventListener){
+            elm.addEventListener(type,handler,false);
+            return true;
+        }else if(elm.attachEvent){
+            elm.attachEvent('on'+type,function(){handler.apply(elm)});
+            return true;
+        }
+        return false;
+    }
 
     function init() {
-        document.getElementById('sort-btn').onclick = btnHandle;
+
+        var btn = document.getElementById('sort-btn').onclick = btnHandle;
+        addEvent(btn, 'click', addEvent);
         // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
 
     }
