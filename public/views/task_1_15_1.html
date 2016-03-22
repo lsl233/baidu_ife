@@ -59,8 +59,9 @@
      * 返回一个排序后的数组
      */
     function sortAqiData(data) {
-        var temp;
 
+        /* 冒泡排序
+        var temp;
         for (var i = 0, l = data.length; i < l; i++) {
 
             for (var j = i + 1, b = data.length; j < b; j++) {
@@ -72,6 +73,12 @@
                }
             }
         }
+        */
+
+        // sort 方法
+        data.sort(function(x, y) {
+            return x[1] - y[1];
+        })
 
         return data;
     }
@@ -85,14 +92,23 @@
         var resort = document.getElementById('resort'),
             CN_number = ['一', '二', '三', '四', '五', '六', '八', '九', '十'],
             e_li,
-            str;
+            str,
+            htmlArr = [];
 
         for (var i = 0, l = data.length; i < l; i++) {
             str = data[data.length - i - 1].toString().split(',');
+
+            /* append 方式
             e_li = document.createElement('li');
             e_li.innerHTML = '第' + CN_number[i] + '名:' + str[0] + '空气质量：<b>' + str[1] + '</b>';
             resort.appendChild(e_li);
+            */
+
+            // 数组方式
+            htmlArr.push('<li>第' + CN_number[i] + '名:' + str[0] + '空气质量：<b>' + str[1] + '</b></li>');
+
         }
+        resort.innerHTML = htmlArr.join('');
     }
 
     function btnHandle() {
@@ -102,6 +118,13 @@
         render(aqiData);
     }
 
+    /**
+     * 添加事件（兼容）
+     * @param elm ----------------------- dom元素
+     * @param type ---------------------- 事件
+     * @param handler ------------------- 方法
+     * @returns {boolean} --------------- boolean
+     */
     function addEvent(elm,type,handler){
         if(!elm) return false;
         if(elm.addEventListener){
@@ -116,9 +139,9 @@
 
     function init() {
 
-        var btn = document.getElementById('sort-btn').onclick = btnHandle;
-        addEvent(btn, 'click', addEvent);
         // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
+        var btn = document.getElementById('sort-btn');
+        addEvent(btn, 'click', btnHandle);
 
     }
 
