@@ -35,7 +35,7 @@ function renderAqiList() {
     apiTable = document.getElementById('api-table');
     list = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
     for (name in aqiData) {
-        list += '<tr><td>'
+        list += '<tr><td class="ctiy-name">'
             + name +'</td><td>'
             + aqiData[name]
             +'</td><td><button>删除</button></td></tr>';
@@ -57,9 +57,19 @@ function addBtnHandle() {
  * 点击各个删除按钮的时候的处理逻辑
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
-function delBtnHandle() {
-    // do sth.
+function delBtnHandle(event) {
+    var event,
+        target,
+        ctiy
 
+    event = event || window.event;
+    target = event.target || event.srcElement;
+
+    if (target.tagName === 'BUTTON') {
+        ctiy = target.parentNode.parentNode.getElementsByClassName('ctiy-name')[0].outerText;
+        delete aqiData[ctiy];
+
+    };
     renderAqiList();
 }
 
@@ -67,13 +77,15 @@ function delBtnHandle() {
 
 function init() {
     var addBtn,
-        delBtn;
+        delBtn,
+        apiTable;
 
     addBtn = document.getElementById('add-btn');
     // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
     addEvent(addBtn, 'click', addBtnHandle);
     // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-
+    apiTable = document.getElementById('api-table');
+    addEvent(apiTable, 'click', delBtnHandle);
 }
 
 init();
