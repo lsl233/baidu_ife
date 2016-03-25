@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2016/3/23 0023.
  */
+
 /**
  * aqiData，存储用户输入的空气指数数据
  * 示例格式：
@@ -21,6 +22,15 @@ function addAqiData() {
 
     ctiy = document.getElementById('aqi-city-input').value;
     index = document.getElementById('aqi-value-input').value;
+
+    if (/[^\u4e00-\u9fa5]/.test(ctiy) || !ctiy) {
+        alert('请输入中文');
+        return false;
+    }
+    if (!/^[0-9]*$/.test(index) || !index) {
+        alert('请输入数字');
+        return false;
+    }
 
     aqiData[ctiy] = index;
 }
