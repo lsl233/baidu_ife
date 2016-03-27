@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2016-03-27 08:57:52
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-03-27 20:45:45
+* @Last Modified time: 2016-03-27 21:22:40
 */
 
 'use strict';
@@ -133,6 +133,10 @@ function initGraTimeForm() {
 		var target = e.target || e.srcElement;
 
 		if (target.tagName === 'INPUT') {
+      // 判断日期选项是否发生变化
+      if (target.value === pageState.nowGraTime) {
+        return false;
+      }
 			pageState.nowGraTime = target.value;
 			renderChart();
 		}
@@ -145,7 +149,7 @@ function initGraTimeForm() {
  */
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
-
+  var select = document.getElementById('city-select');
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
 
 }
