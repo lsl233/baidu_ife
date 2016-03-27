@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2016-03-27 08:57:52
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-03-27 11:32:18
+* @Last Modified time: 2016-03-27 20:45:45
 */
 
 'use strict';
@@ -69,10 +69,10 @@ var rectangleLevel = {
 		return '10px';
 	},
 	week: function () {
-		return '15px';
+		return '30px';
 	},
 	month: function () {
-		return '20px';
+		return '50px';
 	}
 }
 
@@ -84,9 +84,10 @@ var randomColor = function(){
  */
 function renderChart() {
 	var apiChartWrap = document.getElementById('apiChartWrap');
+	apiChartWrap.innerHTML = '';
+
 	var index = aqiSourceData[pageState.nowSelectCity];
 	var width = rectangleLevel[pageState.nowGraTime]();
-	// var rectangleDom = "<div></div>";
 	var height;
 	for (var t in index) {
 		height = index[t] + 'px';
@@ -99,6 +100,8 @@ function renderChart() {
  */
 function graTimeChange() {
   // 确定是否选项发生了变化 
+
+  // 设置对应数据
   var time;
   var radio = document.getElementById('form-gra-time').getElementsByTagName('input');
   for (var i = 0, r; r = radio[i++];) {
@@ -106,10 +109,6 @@ function graTimeChange() {
   		time = r.value;
   	}
   }
-
-  console.log(time)
-  // 设置对应数据
-
   // 调用图表渲染函数
 }
 
