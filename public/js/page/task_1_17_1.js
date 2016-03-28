@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2016-03-27 08:57:52
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-03-27 21:22:40
+* @Last Modified time: 2016-03-28 22:57:33
 */
 
 'use strict';
@@ -150,6 +150,7 @@ function initGraTimeForm() {
 function initCitySelector() {
   // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
   var select = document.getElementById('city-select');
+  
   // 给select设置事件，当选项发生变化时调用函数citySelectChange
 
 }
