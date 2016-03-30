@@ -6,6 +6,6 @@
  - [x] [task_1_15_1 JavaScript编码（三）](http://lsl233.me/public/views/task_1_15_1.html "task_1_15_1 JavaScript编码（三）")
  - [x] [task_1_16_1 JavaScript编码（四）](http://lsl233.me/public/views/task_1_16_1.html "task_1_16_1 JavaScript编码（四）")
  - [ ] [task_1_17_1 JavaScript编码（五）](http://lsl233.me/public/views/task_1_17_1.html "task_1_17_1 JavaScript编码（五）")
-
+111
 ### 个人练习
  - [x] [策略模式动画](http://lsl233.me/public/views/animate.html "策略模式动画")
