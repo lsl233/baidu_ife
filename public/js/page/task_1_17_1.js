@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2016-03-27 08:57:52
 * @Last Modified by:   Administrator
-* @Last Modified time: 2016-03-28 22:57:33
+* @Last Modified time: 2016-04-03 13:33:01
 */
 
 'use strict';
@@ -66,7 +66,14 @@ var pageState = {
  */
 var rectangleLevel = {
 	day: function () {
-		return '10px';
+    var width = '10px'
+    var len = (function () {
+      reutn aqiSourceData[pageState.nowSelectCity].length
+    })()
+		return {
+      width: '10px',
+      len: len
+    };
 	},
 	week: function () {
 		return '30px';
