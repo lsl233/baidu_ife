@@ -60,48 +60,76 @@ var pageState = {
   nowGraTime: "day"
 }
 
+
+
 /**
  * [rectangleLevel 矩形等级]
  * @type {Object}
  */
+var newData = {};
 var rectangleLevel = {
-	day: function () {
-    var width = '10px'
-    var len = (function () {
-      reutn aqiSourceData[pageState.nowSelectCity].length
-    })()
+    day: (function () {
+        // 指数
+	    var index = aqiSourceData[pageState.nowSelectCity];
+        // 数量
+        var len = (function () {
+            return aqiSourceData[pageState.nowSelectCity].length;
+        })();
+
+        return {
+            width: '10px',
+            len: len,
+            index: index,
+
+        };
+    })(),
+	week: (function () {
+        var len = (function () {
+            return aqiSourceData[pageState.nowSelectCity].length;
+        })();
+
 		return {
-      width: '10px',
-      len: len
-    };
-	},
-	week: function () {
-		return '30px';
-	},
+            width: '30px',
+            len: len
+        };
+	})(),
 	month: function () {
 		return '50px';
 	}
 }
 
-var randomColor = function(){
-	return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
-}
+/**
+ * 随机颜色
+ * @returns {string}
+ */
+var randomColor = function () {
+    return '#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+};
+
+
 /**
  * 渲染图表
  */
 function renderChart() {
 	var apiChartWrap = document.getElementById('apiChartWrap');
-	apiChartWrap.innerHTML = '';
 
-	var index = aqiSourceData[pageState.nowSelectCity];
-	var width = rectangleLevel[pageState.nowGraTime]();
+    // 清空HTML
+	apiChartWrap.innerHTML = '';
+    var Level = rectangleLevel[pageState.nowGraTime];
+    var index = Level.index;
+    var width = Level.width;
+    // 模板
+    var model = '<div style="width:{width}; height: {height}; background:{bgcolor}"></div>'
+
 	var height;
 	for (var t in index) {
 		height = index[t] + 'px';
-		apiChartWrap.innerHTML += '<div style="width:'+ width +';height:'+ height +';background-color:'+ randomColor() +'"></div>';
+        apiChartWrap.innerHTML += model.replace('{width}', width)
+            .replace('{height}', height)
+            .replace('{bgcolor}', randomColor());
 	}
 }
-// renderChart();
+
 /**
  * 日、周、月的radio事件点击时的处理函数
  */
