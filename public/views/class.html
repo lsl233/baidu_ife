@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<ul>
+    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, accusamus aliquam architecto deserunt distinctio
+        est libero magnam maxime minus nemo neque officia porro reiciendis, soluta sunt tenetur ullam vel voluptatum!
+    </li>
+    <li>Laboriosam obcaecati porro sed? Assumenda beatae consequatur, culpa deserunt dolore esse facere illum neque rem
+        reprehenderit sit tempore voluptate voluptatum. Culpa distinctio enim sit? Aliquid impedit nesciunt quidem quod
+        recusandae.
+    </li>
+    <li>Aliquid aspernatur blanditiis corporis dolor dolorem doloribus ea eligendi esse est et excepturi, exercitationem
+        fugit illo iusto minus obcaecati odio quas ratione repellendus, sint totam ut voluptatem! Incidunt, velit,
+        veniam.
+    </li>
+    <li>Aspernatur dignissimos est exercitationem laborum quia quibusdam, repellendus vel. Dicta odio perferendis quis
+        tempore, ullam velit. Assumenda dolore eaque, fugit iste modi mollitia officiis praesentium provident quo rerum
+        saepe, voluptate?
+    </li>
+    <li>Aliquid at fugit officiis voluptas. Adipisci aliquam doloribus enim minus officiis perferendis qui repellendus
+        tenetur totam, vel vero voluptas. Accusantium delectus dicta ducimus ipsa nihil nobis recusandae rem, sunt ut!
+    </li>
+    <li>Architecto fugit neque sapiente. Distinctio ea eaque exercitationem illo ipsam iusto, nihil rerum vitae. Aliquid
+        blanditiis delectus deleniti deserunt dolor facere, fugiat libero magnam molestiae numquam officiis optio
+        quibusdam, suscipit.
+    </li>
+    <li>Adipisci amet dicta inventore, natus nesciunt nisi nostrum optio quae, quas ratione saepe sapiente veniam
+        veritatis! Atque dolorum fugit numquam reiciendis similique tempora, temporibus! Dolore dolores sed sunt tempore
+        veniam!
+    </li>
+    <li>Ad assumenda eligendi esse expedita itaque iusto minima molestias nemo nobis numquam perferendis quaerat quas
+        quibusdam quo quos, recusandae reiciendis reprehenderit totam veniam voluptates. Ad esse incidunt nihil
+        temporibus vel.
+    </li>
+    <li>Accusantium asperiores autem cum exercitationem in omnis totam vel! Ab amet blanditiis commodi consectetur
+        corporis debitis excepturi, ipsam itaque nesciunt nulla odio placeat, provident unde! Cum expedita ipsam libero
+        soluta!
+    </li>
+    <li>Assumenda atque corporis delectus deserunt distinctio ducimus ea error impedit laboriosam neque odio
+        perferendis, possimus quisquam, repudiandae sapiente similique suscipit temporibus. Nemo non obcaecati quaerat
+        reprehenderit totam? Doloribus, quaerat repudiandae.
+    </li>
+</ul>
+<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.js"></script>
+<script src=""></script>
+<script>
+
+    // 父类
+    function Widget(width, height) {
+        this.widht = width || 50;
+        this.height = height || 50;
+        this.$elem = null;
+    }
+
+    Widget.prototype.render = function ($where) {
+        if (this.$elem) {
+            this.$elem.css({
+                width: this.width + 'px',
+                height: this.height + 'px'
+            }).appendTo($where);
+        }
+    }
+
+    // 子类
+    function Button(width, height, label) {
+        Widget.call(this, width, height);
+        this.label = label || "Default";
+
+        this.$elem = $("<button>").text(this.label);
+    }
+
+    Button.prototype.render = function ($where) {
+        Widget.prototype.render.call(this, $where);
+        this.$elem.click(this.onClick.bind(this));
+    }
+
+    Button.prototype.onClick = function (evt) {
+        console.log("Button" + this.label + "clicked!");
+    }
+
+    $(document).ready(function () {
+        var $body = $(document.body);
+        var btn1 = new Button(125, 30, 'Hello');
+        var btn2 = new Button(150, 40, "World");
+
+        btn1.render($body);
+        btn2.render($body);
+    });
+</script>
+</body>
+</html>

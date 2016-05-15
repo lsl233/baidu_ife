@@ -10,6 +10,7 @@
     	<input type="checkbox" id="4">
     	<input type="checkbox" id="5">	
     <script type="text/javascript">
+		console.time('times');
     	var myImg = (function() {
     		var imgNode = document.createElement('img');
     		document.body.appendChild(imgNode);
@@ -68,6 +69,20 @@
     			}
     		}
     	}
+
+		var getSingle = function ( fn ) {
+			var result;
+			return function () {
+				return result || (result = fn.apply(this, arguments));
+			}
+		}
+
+		var createDiv = getSingle(function (a) {
+			document.createElement('div');
+			console.log(a)
+		});
+		createDiv(1);
+		console.timeEnd('timesEnd');
     </script>
     </body>
 </html>

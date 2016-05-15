@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+    <script>
+    function curry (fn) {
+    	var args = Array.prototype.slice(arguments, 1);
+    		return function () {
+    			var innerArgs = Array.prototype.slice(arguments);
+    			var finalArgs = args.concat(innerArgs);
+    			return fn.apply(null, finalArgs);
+    		}
+    }
+
+    function add(num1, num2) {
+    	return num2 + num1;
+    }
+    var curriedAdd = curry(add, 5);
+    alert(curriedAdd(4));
+    </script>
+    </body>
+</html>
